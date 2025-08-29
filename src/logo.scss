@@ -1,0 +1,48 @@
+@use 'vars';
+
+#logo {
+  aspect-ratio: 1 / 1;
+  padding: 8px 9px;
+  text-decoration: none;
+  color: var(--fg-color);
+  background: var(--bg2-color);
+  font-family: var(--mono-font);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 15px;
+  transition: background-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#logo.post-shine {
+  background: var(--fg2-color);
+}
+
+#logo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255,255,255,0.8) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  background-repeat: no-repeat;
+  transform: translateX(-200%);
+  pointer-events: none;
+}
+
+#logo:hover::after {
+  animation: shine 0.2s ease forwards;
+}
+
+@keyframes shine {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+

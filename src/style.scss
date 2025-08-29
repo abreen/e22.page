@@ -1,0 +1,259 @@
+@use 'vars';
+
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  color: var(--bg-color);
+  background: var(--fg-color);
+}
+
+h1 {
+  font-size: 250%;
+  font-weight: 700;
+}
+
+pre,
+tt,
+code {
+  font-family: var(--mono-font);
+  font-weight: 400;
+  font-style: normal;
+}
+
+code::before,
+code::after {
+  content: '`';
+  color: var(--fg2-color);
+}
+
+body {
+  color: var(--fg-color);
+  background: var(--bg-color);
+
+  font-family: var(--font);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  letter-spacing: 0.2px;
+  line-height: var(--line-height);
+  -webkit-font-smoothing: subpixel-antialiased;
+
+  margin: 0;
+}
+
+html {
+  scrollbar-color: var(--fg2-color) var(--bg-color);
+}
+
+p {
+  margin-bottom: 1rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+input[type='text'] {
+  background: var(--bg-color);
+  border: var(--control-border-width) solid var(--fg-color);
+  border-radius: var(--border-radius);
+}
+
+input[type='checkbox'] {
+}
+
+a.internal,
+button,
+input[type='submit'] {
+  background: var(--bg-color);
+  color: var(--fg-color);
+  padding: 2px 5px;
+  border: var(--control-border-width) solid var(--fg2-color);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-size: 12pt;
+  font-family: var(--mono-font);
+  font-weight: 400;
+  font-style: italic;
+}
+
+button,
+input[type='submit'],
+input[type='text'] {
+
+}
+
+a.internal:active,
+button:active,
+input[type='submit']:active {
+  background: var(--fg-color) !important;
+  color: var(--bg-color) !important;
+}
+
+a.internal:hover,
+button:hover,
+input[type='submit']:hover {
+  background: var(--fg2-color);
+  cursor: pointer;
+}
+
+input[type='text'] {
+  background: var(--bg-color);
+  color: var(--fg-color);
+  font-size: 12pt;
+  padding: 4px 4px;
+}
+
+a.internal:focus,
+button:focus,
+input[type='submit']:focus,
+input[type='text']:focus,
+input[type='search']:focus {
+  outline: var(--focus-border-width) solid var(--fg2-color);
+  background: var(--bg2-color);
+}
+
+.table {
+  display: table;
+  border-collapse: collapse;
+}
+
+.table a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.table a,
+.table .row {
+  display: table-row;
+}
+
+.table .cell {
+  display: table-cell;
+  padding: 2px 4px;
+}
+
+.table .cell.header {
+  font-family: var(--mono-font);
+  font-weight: 500;
+  background: var(--bg2-color);
+}
+
+.table.link-table .row:hover .cell {
+  background: var(--bg2-color);
+}
+
+.table.link-table .row:hover .cell.header {
+  background: var(--fg2-color);
+}
+
+.ibm-plex-mono-regular {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ibm-plex-mono-regular-italic {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* <weight>: Use a value from 100 to 700
+  <uniquifier>: Use a unique and descriptive class name */
+
+.ibm-plex-sans-abc123 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav {
+  display: flex;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--fg-color);
+  gap: 18px;
+}
+
+header nav ul {
+  gap: 18px;
+}
+
+header nav > * {
+}
+
+main {
+  max-width: 768px;
+}
+
+.block {
+
+}
+
+section > h2 {
+  font-size: var(--font-size);
+  font-family: var(--mono-font);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--fg2-color);
+  border-bottom: var(--label-border-width) solid var(--fg2-color);
+}
+
+section > h2 + p {
+  margin-top: 16px;
+}
+
+/* Default: Extra-small devices such as small phones (less than 640px) */
+
+/* Small devices such as large phones (640px and up) */
+@media only screen and (min-width: 640px) {
+  main {
+    margin: 15vh auto 0 auto;
+  }
+}
+
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 768px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .label {
+  }
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 1024px) {
+}
+
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 1280px) {
+}
