@@ -1,4 +1,7 @@
-const DURATION_MS = 250
+const DURATION_MS = 500
+
+// CSS properties we control via the style attribute
+const CONTROLLED_PROPERTIES = ['height', 'overflow']
 
 function setTabIndex(header: HTMLElement, tabIndex: number) {
   const links = header.querySelectorAll('a')
@@ -9,6 +12,35 @@ function setTabIndex(header: HTMLElement, tabIndex: number) {
   links.forEach(el => {
     el.tabIndex = tabIndex
   })
+}
+
+function removeClass(el: HTMLElement, className: string) {
+  el.classList.remove(className)
+  if (!el.className) {
+    el.removeAttribute('class')
+  }
+}
+
+function removeStyle(el: HTMLElement, propertyName: string) {
+  el.style.removeProperty(propertyName)
+  if (CONTROLLED_PROPERTIES.every(property => !el.style.getPropertyValue(property))) {
+    el.removeAttribute('style')
+  }
+}
+
+function getExpandedHeight(summary: HTMLElement, content: HTMLElement) {
+  function elementHeight(el: HTMLElement) {
+    const style = window.getComputedStyle(el)
+    return el.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom)
+  }
+
+  let totalHeight = elementHeight(summary)
+
+  for (const child of content.children) {
+    totalHeight += elementHeight(child as HTMLElement)
+  }
+
+  return Math.ceil(totalHeight)
 }
 
 function getElement(parent: Document | Element, selector: string): HTMLElement {
@@ -33,9 +65,15 @@ export default () => {
 
   function finish(isOpen: boolean) {
     details.open = isOpen
-    details.classList.remove('expanding')
-    details.style.height = ''
-    details.style.overflow = ''
+    if (isOpen) {
+      header.classList.add('is-open')
+    } else {
+      removeClass(header, 'is-open')
+    }
+    removeClass(header, 'is-expanding')
+    removeClass(header, 'is-collapsing')
+    removeStyle(details, 'height')
+    removeStyle(details, 'overflow')
     isExpanding = false
     isCollapsing = false
     animation = null
@@ -47,15 +85,17 @@ export default () => {
     }
 
     isCollapsing = true
+    header.classList.add('is-collapsing')
 
     animation = details.animate(
       {height: [`${details.offsetHeight}px`, `${summary.offsetHeight}px`]},
-      {duration: DURATION_MS, easing: 'ease-out'},
+      {duration: DURATION_MS, easing: 'ease-in-out'},
     )
 
     animation.onfinish = () => finish(false)
     animation.oncancel = () => {
       isCollapsing = false
+      removeClass(header, 'is-collapsing')
     }
   }
 
@@ -65,20 +105,22 @@ export default () => {
     }
 
     isExpanding = true
-    details.classList.add('expanding')
+    header.classList.add('is-expanding')
 
     details.style.height = `${details.offsetHeight}px`
     details.open = true
 
+    const expandedHeight = getExpandedHeight(summary, content)
+
     animation = details.animate(
-      {height: [`${details.offsetHeight}px`, `${summary.offsetHeight + content.offsetHeight}px`]},
-      {duration: DURATION_MS, easing: 'ease-out'},
+      {height: [`${details.offsetHeight}px`, `${expandedHeight}px`]},
+      {duration: DURATION_MS, easing: 'ease-in-out'},
     )
 
     animation.onfinish = () => finish(true)
     animation.oncancel = () => {
       isExpanding = false
-      details.classList.remove('expanding')
+      removeClass(header, 'is-expanding')
     }
   }
 

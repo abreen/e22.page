@@ -1,20 +1,18 @@
 :root {
   --header-collapsed-height: 48px;
-  --header-expanded-height: 100vh;
-  --header-gap: 12px;
+  --header-gap: 16px;
+  --logo-color: hsl(4.65deg 66% 33%);
 }
 
 main {
-  margin-top: var(--header-collapsed-height);
 }
 
 header {
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(12px);
   background: var(--bg-color-translucent);
-  transition: height 0.5s;
 
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
 
   overflow: hidden;
@@ -22,6 +20,8 @@ header {
 
   display: grid;
   grid-template-columns: 1fr;
+
+  font-size: 18px;
 }
 
 header details summary {
@@ -34,15 +34,12 @@ header nav {
   user-select: none;
   gap: var(--header-gap);
   grid-template-columns: 1fr 1fr;
+  margin: var(--header-gap);
 }
 
 @media (prefers-color-scheme: dark) {
   header {
   }
-}
-
-header.expanded {
-  height: var(--header-expanded-height);
 }
 
 header nav ul {
@@ -68,7 +65,6 @@ header nav a.disabled {
 .current-heading {
 }
 
-header details nav,
 header details input[type='search'] {
   margin: 0 var(--header-gap) var(--header-gap) var(--header-gap);
 }
@@ -132,7 +128,7 @@ header summary::after {
   height: 24px;
   content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9' stroke='hsl(20deg 5% 8%)' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
   display: inline-block;
-  transition: transform 0.2s;
+  transition: transform 0.5s;
   vertical-align: text-bottom;
   margin-left: 4px;
 }
@@ -143,12 +139,39 @@ header summary::after {
   }
 }
 
-header summary:hover {
+header:hover {
   background: var(--bg2-color);
   cursor: pointer;
 }
 
-header details.expanding summary::after,
+header.is-expanding:hover,
+header.is-open:hover {
+  background: var(--bg-color-translucent);
+}
+
+header.is-expanding details summary::after,
+header.is-open details summary::after,
 header details[open] summary::after {
   transform: scaleY(-1);
+}
+
+header.is-expanding,
+header.is-open {
+}
+
+header.is-collapsing {
+}
+
+header .title {
+  font-family: var(--mono-font);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+header .title .logo {
+  color: #fff;
+  background: var(--logo-color);
+  padding: 2px 6px;
+  margin-right: 4px;
 }

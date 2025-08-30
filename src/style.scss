@@ -4,7 +4,7 @@
   --bg-color: hsl(20deg 25% 95%);
   --bg-color-translucent: hsl(20deg 25% 95% / 50%);
   --bg2-color: hsl(20deg 10% 85%);
-  --logo-color: hsl(4.65deg 66% 33%);
+  --bg2-color-translucent: hsl(20deg 10% 85% / 50%);
 
   --font: 'Source Serif 4', Times, 'Times New Roman', Georgia, serif;
   --system-font:
@@ -22,7 +22,7 @@
   --link-border-width: 1px;
   --label-border-width: 2px;
   --focus-border-width: 3px;
-  --gap: 12px;
+  --gap: 16px;
 
   color-scheme: light dark;
 }
@@ -34,6 +34,7 @@
     --bg-color: hsl(20deg 10% 10%);
     --bg-color-translucent: hsl(20deg 10% 10% / 50%);
     --bg2-color: hsl(20deg 20% 20%);
+    --bg2-color-translucent: hsl(20deg 20% 20% / 50%);
   }
 }
 
@@ -259,7 +260,7 @@ main {
 section > h2 {
   font-size: var(--font-size);
   font-family: var(--mono-font);
-  font-weight: 400;
+  font-weight: 500;
   font-style: italic;
   border-bottom: var(--label-border-width) solid var(--fg-color);
 }
@@ -273,7 +274,7 @@ section > h2 + p {
 /* Small devices such as large phones (640px and up) */
 @media only screen and (min-width: 640px) {
   main {
-    margin: 15vh auto 0 auto;
+    margin: 0 auto;
   }
 }
 
