@@ -3,16 +3,16 @@ const DURATION_MS = 500
 // CSS properties we control via the style attribute
 const CONTROLLED_PROPERTIES = ['height', 'overflow']
 
-function setTabIndex(header: HTMLElement, tabIndex: number) {
-  const links = header.querySelectorAll('a')
-  if (!links) {
-    return
-  }
-
-  links.forEach(el => {
-    el.tabIndex = tabIndex
-  })
-}
+//function setTabIndex(header: HTMLElement, tabIndex: number) {
+//  const links = header.querySelectorAll('a')
+//  if (!links) {
+//    return
+//  }
+//
+//  links.forEach(el => {
+//    el.tabIndex = tabIndex
+//  })
+//}
 
 function removeClass(el: HTMLElement, className: string) {
   el.classList.remove(className)
@@ -56,8 +56,6 @@ export default () => {
   const details = getElement(header, 'details') as HTMLDetailsElement
   const summary: HTMLElement = getElement(details, 'summary')
   const content: HTMLElement = getElement(details, '.content')
-
-  const main: HTMLElement = getElement(document, 'main')
 
   let isExpanding = false,
     isCollapsing = false,
@@ -126,11 +124,9 @@ export default () => {
 
   function handleClick(e: MouseEvent) {
     if (details.open) {
-      setTabIndex(header, -1)
-      main.inert = false
+      //setTabIndex(header, -1)
     } else {
-      setTabIndex(header, 0)
-      main.inert = true
+      //setTabIndex(header, 0)
     }
 
     e.preventDefault()
