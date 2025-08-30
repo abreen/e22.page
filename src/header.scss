@@ -27,6 +27,7 @@ header {
 header details summary {
   text-align: center;
   padding: 4px 0;
+  list-style-type: none;
 }
 
 header nav {
@@ -119,7 +120,7 @@ header details summary::marker {
   content: '';
 }
 
-header summary {
+header details {
 }
 
 header summary::before {
