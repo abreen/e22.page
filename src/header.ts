@@ -3,17 +3,6 @@ const DURATION_MS = 500
 // CSS properties we control via the style attribute
 const CONTROLLED_PROPERTIES = ['height', 'overflow']
 
-//function setTabIndex(header: HTMLElement, tabIndex: number) {
-//  const links = header.querySelectorAll('a')
-//  if (!links) {
-//    return
-//  }
-//
-//  links.forEach(el => {
-//    el.tabIndex = tabIndex
-//  })
-//}
-
 function removeClass(el: HTMLElement, className: string) {
   el.classList.remove(className)
   if (!el.className) {
@@ -123,12 +112,6 @@ export default () => {
   }
 
   function handleClick(e: MouseEvent) {
-    if (details.open) {
-      //setTabIndex(header, -1)
-    } else {
-      //setTabIndex(header, 0)
-    }
-
     e.preventDefault()
     details.style.overflow = 'hidden'
     if (isCollapsing || !details.open) {
@@ -137,9 +120,9 @@ export default () => {
       collapse()
     }
   }
-  details.addEventListener('click', handleClick)
+  summary.addEventListener('click', handleClick)
 
   return () => {
-    details.removeEventListener('click', handleClick)
+    summary.removeEventListener('click', handleClick)
   }
 }

@@ -60,7 +60,6 @@ header nav a {
 header nav a.disabled {
   color: var(--fg-color);
   opacity: 0.5;
-  font-style: italic;
   cursor: default;
 }
 
@@ -71,17 +70,9 @@ header details input[type='search'] {
   margin: 0 var(--header-gap) var(--header-gap) var(--header-gap);
 }
 
-@media only screen and (max-width: 640px) {
-  header {
-  }
-}
-
 @media only screen and (min-width: 640px) {
   header details nav {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-
-  header nav > div {
   }
 }
 
@@ -90,27 +81,6 @@ header nav div > p {
   user-select: none;
   border-bottom: var(--label-border-width) solid var(--fg-color);
   padding-bottom: 2px;
-}
-
-header details input[type='search'] {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'><circle cx='11' cy='11' r='7' stroke='hsl(20deg 5% 8%)' stroke-width='2' fill='none'/><line x1='16.5' y1='16.5' x2='22' y2='22' stroke='hsl(20deg 5% 8%)' stroke-width='2' stroke-linecap='round'/></svg>");
-  background-repeat: no-repeat;
-  background-position: left 6px center;
-  background-size: 16px 16px;
-  padding-left: 2rem;
-
-  border-radius: 18px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90vw;
-  max-width: 400px;
-}
-
-@media (prefers-color-scheme: dark) {
-  header details input[type='search'] {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'><circle cx='11' cy='11' r='7' stroke='hsl(20deg 10% 90%)' stroke-width='2' fill='none'/><line x1='16.5' y1='16.5' x2='22' y2='22' stroke='hsl(20deg 10% 90%)' stroke-width='2' stroke-linecap='round'/></svg>");
-  }
 }
 
 header details summary::-webkit-details-marker {
@@ -167,14 +137,19 @@ header.is-open {
 header.is-collapsing {
 }
 
-header .title {
+header .content {
+  position: relative;
+}
+
+header summary .title {
   font-family: var(--mono-font);
   font-style: italic;
   font-weight: 500;
   font-size: 16px;
+  user-select: none;
 }
 
-header .title .logo {
+header summary .title .logo {
   color: #fff;
   background: var(--logo-color);
   padding: 2px 6px;
