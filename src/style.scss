@@ -30,7 +30,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --fg-color: hsl(20deg 10% 90%);
-    --fg2-color: hsl(20deg 20% 35%);
+    --fg2-color: hsl(20deg 20% 60%);
     --bg-color: hsl(20deg 10% 10%);
     --bg-color-translucent: hsl(20deg 10% 10% / 50%);
     --bg2-color: hsl(20deg 20% 20%);
@@ -67,8 +67,9 @@ code {
   font-style: normal;
 }
 
-p tt, p code {
-  font-size: .9em;
+p tt,
+p code {
+  font-size: 0.9em;
 }
 
 /*
@@ -133,7 +134,7 @@ a.external:hover::after {
 
 @media (prefers-color-scheme: dark) {
   a.external:hover::after {
-    content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'><rect x='3' y='3' width='18' height='18' stroke='hsl(20deg 20% 35%)' stroke-width='2' fill='none' rx='2'/><path d='M9 15 L15 9' stroke='hsl(20deg 20% 35%)' stroke-width='2' stroke-linecap='round'/><path d='M9 9 H15 V15' stroke='hsl(20deg 20% 35%)' stroke-width='2' stroke-linecap='round'/></svg>");
+    content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'><rect x='3' y='3' width='18' height='18' stroke='hsl(20deg 20% 60%)' stroke-width='2' fill='none' rx='2'/><path d='M9 15 L15 9' stroke='hsl(20deg 20% 60%)' stroke-width='2' stroke-linecap='round'/><path d='M9 9 H15 V15' stroke='hsl(20deg 20% 60%)' stroke-width='2' stroke-linecap='round'/></svg>");
   }
 }
 
@@ -143,8 +144,7 @@ main p {
 }
 
 input[type='text'],
-input[type='search']
- {
+input[type='search'] {
   background: var(--bg-color);
   color: var(--fg-color);
   border: var(--control-border-width) solid var(--fg2-color);

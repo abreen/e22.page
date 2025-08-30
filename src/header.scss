@@ -26,6 +26,7 @@ header {
 
 header details summary {
   text-align: center;
+  padding: 4px 0;
 }
 
 header nav {
@@ -52,30 +53,24 @@ header nav ul {
 
 header nav a {
   border: none;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 header nav a.disabled {
   color: var(--fg-color);
-  opacity: .5;
+  opacity: 0.5;
   font-style: italic;
   cursor: default;
 }
 
 .current-heading {
-  user-select: none;
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
 }
 
 header details nav,
-header details input[type="search"]
-{
+header details input[type='search'] {
   margin: 0 var(--header-gap) var(--header-gap) var(--header-gap);
-}
-
-header summary {
 }
 
 @media only screen and (max-width: 640px) {
@@ -94,8 +89,6 @@ header summary {
 
 header nav div > p {
   font-style: italic;
-  font-size: 16px;
-  font-family: var(--mono-font);
   user-select: none;
   border-bottom: var(--label-border-width) solid var(--fg-color);
   padding-bottom: 2px;
@@ -133,28 +126,29 @@ header summary {
 }
 
 header summary::before {
-  padding: 8px 0;
-  width: 100%;
+}
+
+header summary::after {
   height: 24px;
   content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9' stroke='hsl(20deg 5% 8%)' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
   display: inline-block;
-  margin-right: 0.5em;
   transition: transform 0.2s;
+  vertical-align: text-bottom;
+  margin-left: 4px;
 }
 
 @media (prefers-color-scheme: dark) {
-  header summary::before {
+  header summary::after {
     content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9' stroke='hsl(20deg 10% 90%)' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
   }
 }
 
-header summary:hover::before {
+header summary:hover {
   background: var(--bg2-color);
+  cursor: pointer;
 }
 
-header summary:active::before {
-}
-
-header details[open] summary::before {
+header details.expanding summary::after,
+header details[open] summary::after {
   transform: scaleY(-1);
 }

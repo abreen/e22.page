@@ -21,8 +21,6 @@ module.exports = {
     new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: [path.join(__dirname, 'dist/**/*')]}),
     new webpack.DefinePlugin({}),
     new HtmlWebpackPlugin({template: './index.html'}),
-    new webpack.ProvidePlugin({
-      unjustifiable: "unjustifiable",
-    }),
+    new webpack.ProvidePlugin({unjustifiable: 'unjustifiable'}),
   ],
 }
