@@ -157,6 +157,10 @@ header details[open] summary::after {
   transform: scaleY(-1);
 }
 
+header.is-collapsing details summary::after {
+  transform: inherit;
+}
+
 header.is-expanding,
 header.is-open {
 }
