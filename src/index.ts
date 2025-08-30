@@ -1,11 +1,21 @@
 import './style.scss'
+import './search.scss'
+import './header.scss'
+import './collapse.scss'
 
+import mountSearch from './search'
+import mountHeader from './header'
 //import mountMenu from './menu'
-import mountTypography from './typography'
-import mountLogo from './logo'
+import mountCollapse from './collapse'
 
 document.addEventListener('DOMContentLoaded', () => {
-  mountTypography()
-  //mountMenu()
-  mountLogo()
+  const components = {search: mountSearch, header: mountHeader, collapse: mountCollapse}
+
+  Object.entries(components).forEach(([name, mount]) => {
+    try {
+      mount()
+    } catch (err) {
+      console.error(`failed to mount ${name} component`)
+    }
+  })
 })

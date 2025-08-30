@@ -1,0 +1,160 @@
+:root {
+  --header-collapsed-height: 48px;
+  --header-expanded-height: 100vh;
+  --header-gap: 12px;
+}
+
+main {
+  margin-top: var(--header-collapsed-height);
+}
+
+header {
+  backdrop-filter: blur(16px);
+  background: var(--bg-color-translucent);
+  transition: height 0.5s;
+
+  width: 100%;
+  position: fixed;
+  top: 0;
+
+  overflow: hidden;
+  z-index: 100;
+
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+header details summary {
+  text-align: center;
+}
+
+header nav {
+  display: grid;
+  user-select: none;
+  gap: var(--header-gap);
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (prefers-color-scheme: dark) {
+  header {
+  }
+}
+
+header.expanded {
+  height: var(--header-expanded-height);
+}
+
+header nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+
+header nav a {
+  border: none;
+}
+
+header nav a.disabled {
+  color: var(--fg-color);
+  opacity: .5;
+  font-style: italic;
+  cursor: default;
+}
+
+.current-heading {
+  user-select: none;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+header details nav,
+header details input[type="search"]
+{
+  margin: 0 var(--header-gap) var(--header-gap) var(--header-gap);
+}
+
+header summary {
+}
+
+@media only screen and (max-width: 640px) {
+  header {
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  header details nav {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  header nav > div {
+  }
+}
+
+header nav div > p {
+  font-style: italic;
+  font-size: 16px;
+  font-family: var(--mono-font);
+  user-select: none;
+  border-bottom: var(--label-border-width) solid var(--fg-color);
+  padding-bottom: 2px;
+}
+
+header details input[type='search'] {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'><circle cx='11' cy='11' r='7' stroke='hsl(20deg 5% 8%)' stroke-width='2' fill='none'/><line x1='16.5' y1='16.5' x2='22' y2='22' stroke='hsl(20deg 5% 8%)' stroke-width='2' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: left 0.5rem center;
+  background-size: 1rem 1rem;
+  padding-left: 2rem;
+
+  width: 360px;
+  border-radius: 18px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  header details input[type='search'] {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'><circle cx='11' cy='11' r='7' stroke='hsl(20deg 10% 90%)' stroke-width='2' fill='none'/><line x1='16.5' y1='16.5' x2='22' y2='22' stroke='hsl(20deg 10% 90%)' stroke-width='2' stroke-linecap='round'/></svg>");
+  }
+}
+
+header summary::-webkit-details-marker {
+  display: none;
+}
+
+header summary::marker {
+  content: '';
+}
+
+header summary {
+}
+
+header summary::before {
+  padding: 8px 0;
+  width: 100%;
+  height: 24px;
+  content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9' stroke='hsl(20deg 5% 8%)' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  display: inline-block;
+  margin-right: 0.5em;
+  transition: transform 0.2s;
+}
+
+@media (prefers-color-scheme: dark) {
+  header summary::before {
+    content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9' stroke='hsl(20deg 10% 90%)' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  }
+}
+
+header summary:hover::before {
+  background: var(--bg2-color);
+}
+
+header summary:active::before {
+}
+
+header details[open] summary::before {
+  transform: scaleY(-1);
+}

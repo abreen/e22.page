@@ -7,26 +7,67 @@
     <link rel="icon" type="image/png" href="./favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+      rel="stylesheet"
+    />
     <title>A web page</title>
   </head>
 
   <body>
     <header>
-      <p class="current-heading h1">Binary tree</p>
-      <nav>
-        <div><a href="/" id="logo">22</a></div>
-        <ul>
-          <li tabindex="0">Lectures</li>
-          <li tabindex="0">Code</li>
-          <li tabindex="0">Problem Sets</li>
-          <li tabindex="0">Glossary</li>
-        </ul>
-      </nav>
-      <div class="search">
-        <input type="search" autocomplete="off" name="search-string" placeholder="Ctrl-Space to search" />
-      </div>
+      <details>
+        <summary></summary>
+        <nav>
+          <div>
+            <p>Info</p>
+            <ul>
+              <li><a href="#home" tabindex="-1">Home</a></li>
+              <li><a href="#staff" tabindex="-1">Staff</a></li>
+              <li><a href="#policies" tabindex="-1">Policies</a></li>
+              <li><a href="#resources" tabindex="-1">Resources</a></li>
+            </ul>
+          </div>
+          <div>
+            <p>Topics</p>
+            <ul>
+              <li><a href="#schedule" tabindex="-1">Schedule</a></li>
+              <li><a href="#lectures" tabindex="-1">Lectures</a></li>
+              <li><a href="#sections" tabindex="-1">Sections</a></li>
+              <li><a href="#glossary" tabindex="-1">Glossary</a></li>
+            </ul>
+          </div>
+          <div>
+            <p>Problem sets</p>
+            <ul>
+              <li><a href="#ps1" tabindex="-1">Problem Set 1</a></li>
+              <li><a class="disabled" href="#ps2" tabindex="-1">Problem Set 2</a></li>
+              <li><a class="disabled" href="#ps3" tabindex="-1">Problem Set 3</a></li>
+              <li><a class="disabled" href="#ps4" tabindex="-1">Problem Set 4</a></li>
+              <li><a class="disabled" href="#ps5" tabindex="-1">Problem Set 5</a></li>
+            </ul>
+          </div>
+          <div>
+            <p>External links</p>
+            <ul>
+              <li><a class="external" href="#canvas" tabindex="-1">Canvas</a></li>
+              <li><a class="external" href="#canvas" tabindex="-1">Ed Discussion</a></li>
+              <li><a class="external" href="#canvas" tabindex="-1">Gradescope</a></li>
+            </ul>
+          </div>
+        </nav>
+        <input
+          id="search"
+          tabindex="0"
+          type="search"
+          autocomplete="off"
+          name="search-string"
+          placeholder="Search (requires JavaScript)"
+          disabled
+        />
+      </details>
     </header>
+    <div class="current-heading h2"></div>
     <main>
       <h1>Binary tree</h1>
       <section>
@@ -37,11 +78,8 @@
           <code>left</code> and <code>right</code>.
         </p>
       </section>
-      <div class="block shimmer">
-        <p>Loading...</p>
-        <p></p>
-      </div>
-      <div class="block">
+
+      <section>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In accumsan faucibus lacus, sed sodales sem auctor
           id. Mauris justo tortor, sagittis id tellus quis, aliquet rhoncus nisi. Pellentesque sed nisl eros. Sed id
@@ -55,16 +93,19 @@
           in, luctus elit. Donec auctor aliquam quam, eu vehicula ligula tincidunt in. Ut sit amet laoreet massa. Etiam
           blandit elementum ligula quis mollis.
         </p>
-      </div>
-      <div class="block">
+      </section>
+      <section>
+        <h2>Another heading</h2>
         <p>
-          This course is a survey of fundamental data structures for information processing&mdash;including lists,
-          stacks, queues, trees, and graphs. The course explores the implementation of these data structures (including
-          both array-based and linked representations) and examines classic algorithms that use these structures for
-          tasks such as sorting, searching, and text compression. Techniques for analyzing the efficiency of algorithms
-          are also covered. The Java programming language will be used to demonstrate the concepts discussed in lecture,
-          and programming problems must be completed in Java. Key notions of object-oriented programming, including
-          encapsulation and abstract data types, are emphasized.
+          This course is a survey of fundamental data structures for information processing, including lists, stacks,
+          queues, trees, and graphs. The course explores the implementation of these data structures (including both
+          array-based and linked representations) and examines classic algorithms that use these structures for tasks
+          such as sorting, searching, and text compression.
+        </p>
+        <p>
+          Techniques for analyzing the efficiency of algorithms are also covered. The Java programming language will be
+          used to demonstrate the concepts discussed in lecture, and programming problems must be completed in Java. Key
+          notions of object-oriented programming, including encapsulation and abstract data types, are emphasized.
         </p>
 
         <p>
@@ -73,7 +114,8 @@
           in, luctus elit. Donec auctor aliquam quam, eu vehicula ligula tincidunt in. Ut sit amet laoreet massa. Etiam
           blandit elementum ligula quis mollis.
         </p>
-      </div>
+      </section>
+
       <div class="block">
         <button>Button</button>
         <input type="submit" />
@@ -97,6 +139,10 @@
             </div>
           </a>
         </div>
+      </div>
+      <div class="block shimmer">
+        <p>Loading...</p>
+        <p></p>
       </div>
     </main>
   </body>

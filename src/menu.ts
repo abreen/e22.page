@@ -1,5 +1,3 @@
-import './menu.scss'
-
 type State = {isOpen: boolean}
 
 function click(menu: HTMLElement, event: MouseEvent, state: State) {

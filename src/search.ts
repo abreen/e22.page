@@ -1,4 +1,4 @@
-import './logo.scss'
+import './search.scss'
 
 function getLogoElement(): HTMLElement {
   const el = document.getElementById('logo')
@@ -12,18 +12,18 @@ export default () => {
   const logo: HTMLElement = getLogoElement()
 
   function handleMouseEnter() {
-    logo.classList.remove('post-shine');
+    logo.classList.remove('post-shine')
 
     setTimeout(() => {
       if (logo.matches(':hover')) {
-        logo.classList.add('post-shine');
+        logo.classList.add('post-shine')
       }
-    }, 800);
+    }, 800)
   }
   document.addEventListener('mouseenter', handleMouseEnter)
 
   function handleMouseLeave() {
-    logo.classList.remove('post-shine');
+    logo.classList.remove('post-shine')
   }
   document.addEventListener('mouseleave', handleMouseLeave)
 

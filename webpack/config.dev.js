@@ -2,7 +2,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
-const entrypoints = require('./entrypoints.json');
+const entrypoints = require('./entrypoints.json')
 
 module.exports = {
   mode: 'development',
@@ -21,5 +21,8 @@ module.exports = {
     new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: [path.join(__dirname, 'dist/**/*')]}),
     new webpack.DefinePlugin({}),
     new HtmlWebpackPlugin({template: './index.html'}),
+    new webpack.ProvidePlugin({
+      unjustifiable: "unjustifiable",
+    }),
   ],
 }

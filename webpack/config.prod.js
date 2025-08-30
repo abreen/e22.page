@@ -5,7 +5,7 @@ const path = require('path')
 const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const entrypoints = require('./entrypoints.json');
+const entrypoints = require('./entrypoints.json')
 
 module.exports = {
   mode: 'production',
