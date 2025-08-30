@@ -28,6 +28,7 @@ header details summary {
   text-align: center;
   padding: 4px 0;
   list-style-type: none;
+  cursor: pointer;
 }
 
 header nav {
@@ -123,9 +124,6 @@ header details summary::marker {
 header details {
 }
 
-header summary::before {
-}
-
 header summary::after {
   height: 24px;
   content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9' stroke='hsl(20deg 5% 8%)' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
@@ -141,9 +139,10 @@ header summary::after {
   }
 }
 
-header:hover {
-  background: var(--bg2-color);
-  cursor: pointer;
+@media (hover: hover) {
+  header details summary:hover {
+    background: var(--bg2-color);
+  }
 }
 
 header.is-expanding:hover,
