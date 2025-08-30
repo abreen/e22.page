@@ -48,12 +48,12 @@
   display: block;
   background: Canvas;
   color: CanvasText;
-  border-bottom: 1px solid ButtonBorder;
+  border-bottom: 1px solid CanvasText;
   padding: 8px 0 8px 8px;
 }
 
 #results ol li:first-of-type a {
-  border-top: 1px solid ButtonBorder;
+  border-top: 1px solid CanvasText;
 }
 
 #results ol a:hover {

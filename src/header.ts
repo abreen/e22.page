@@ -113,6 +113,7 @@ export default () => {
 
   function handleClick(e: MouseEvent) {
     e.preventDefault()
+    e.stopPropagation()
     details.style.overflow = 'hidden'
     if (isCollapsing || !details.open) {
       expand()
@@ -122,7 +123,21 @@ export default () => {
   }
   summary.addEventListener('click', handleClick)
 
+  function handleDetailsClick(e: MouseEvent) {
+    e.stopPropagation()
+  }
+  details.addEventListener('click', handleDetailsClick)
+
+  function handleWindowClick() {
+    if (!isCollapsing) {
+      collapse()
+    }
+  }
+  window.addEventListener('click', handleWindowClick)
+
   return () => {
+    window.removeEventListener('click', handleWindowClick)
+    details.removeEventListener('click', handleDetailsClick)
     summary.removeEventListener('click', handleClick)
   }
 }
