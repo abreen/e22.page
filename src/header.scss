@@ -114,11 +114,11 @@ header details input[type='search'] {
   }
 }
 
-header summary::-webkit-details-marker {
+header details summary::-webkit-details-marker {
   display: none;
 }
 
-header summary::marker {
+header details summary::marker {
   content: '';
 }
 
